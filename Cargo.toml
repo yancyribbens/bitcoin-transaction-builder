@@ -14,3 +14,5 @@ arbtest = "0.3"
 [package.metadata.docs.rs]
 rustdoc-args = ["--cfg", "docsrs"]
 
+[[example]]
+name = "from-amount"
