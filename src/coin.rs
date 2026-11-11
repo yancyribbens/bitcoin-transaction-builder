@@ -6,6 +6,9 @@
 //! value added and the conditions to spend it, while the outpoint is the output location used
 //! to create the new transaction input (TxIn).
 
+#[cfg(feature = "arbitrary")]
+#[cfg_attr(docsrs, doc(cfg(feature = "arbitrary")))]
+use arbitrary::{Arbitrary, Unstructured};
 use bitcoin::{Amount, OutPoint, ScriptBuf, Sequence, TxIn, TxOut, Weight, Witness};
 use bitcoin_coin_selection::WeightedUtxo;
 
@@ -41,6 +44,17 @@ impl WeightedUtxo for Coin {
     /// The value of the coin for use by coin-selection.
     fn value(&self) -> Amount {
         self.tx_out.value
+    }
+}
+
+#[cfg(feature = "arbitrary")]
+impl<'a> Arbitrary<'a> for Coin {
+    fn arbitrary(u: &mut Unstructured<'a>) -> arbitrary::Result<Self> {
+        let outpoint = OutPoint::arbitrary(u).unwrap();
+        let tx_out = TxOut::arbitrary(u).unwrap();
+
+        let coin = Coin { outpoint, tx_out };
+        Ok(coin)
     }
 }
 
