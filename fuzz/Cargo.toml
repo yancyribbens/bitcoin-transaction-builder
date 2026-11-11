@@ -1,0 +1,37 @@
+[package]
+name = "bitcoin-transaction-builder-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2024"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+bitcoin = { version = "0.32", features = ["arbitrary"] }
+
+[dependencies.bitcoin-transaction-builder]
+path = ".."
+features = ["arbitrary"]
+
+[[bin]]
+name = "fuzz_target_1"
+path = "fuzz_targets/fuzz_target_1.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "p2tr_tx_from_coins"
+path = "fuzz_targets/p2tr_tx_from_coins.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "p2tr_tx_from_amount"
+path = "fuzz_targets/p2tr_tx_from_amount.rs"
+test = false
+doc = false
+bench = false

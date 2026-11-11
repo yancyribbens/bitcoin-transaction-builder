@@ -31,6 +31,19 @@ let tx = from_amount(
 // broadcast tx
 ```
 
+
+## Fuzz tests
+
+To run fuzz tests, install [cargo fuzz](https://crates.io/crates/cargo-fuzz).
+
+The following fuzz tests can then be run:
+```
+> cargo fuzz run p2tr_tx_from_amount 
+> cargo fuzz run p2tr_tx_from_coin 
+```
+
 ## Minimum Supported Rust Version (MSRV)
 
 This library should always compile with any combination of features on **Rust 1.63**.
+
+##

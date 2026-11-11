@@ -95,6 +95,7 @@ dependencies = [
 name = "bitcoin-transaction-builder"
 version = "0.0.0"
 dependencies = [
+ "arbitrary",
  "arbtest",
  "bitcoin",
  "bitcoin-coin-selection",

@@ -7,6 +7,7 @@ rust-version = "1.63"
 [dependencies]
 bitcoin = { version = "0.32", features = ["arbitrary", "rand-std"] }
 bitcoin-coin-selection = { version = "0.9", features = ["rand"] }
+arbitrary = { version = "1", optional = true }
 
 [dev-dependencies]
 arbtest = "0.3"

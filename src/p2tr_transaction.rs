@@ -211,16 +211,27 @@ pub fn from_amount(
 
 #[cfg(test)]
 mod tests {
-    use arbtest::arbitrary::{Arbitrary, Result, Unstructured};
-    use arbtest::arbtest;
-    use bitcoin::amount::CheckedSum;
-    use bitcoin::blockdata::transaction::effective_value;
-    use bitcoin::secp256k1::SecretKey;
-    use bitcoin::{OutPoint, ScriptBuf};
-    use bitcoin_coin_selection::WeightedUtxo;
-
     use super::*;
     use crate::tests::valued_coins;
+
+    use bitcoin::secp256k1::SecretKey;
+    use bitcoin::ScriptBuf;
+    use bitcoin_coin_selection::WeightedUtxo;
+
+    #[cfg(feature = "arbitrary")]
+    use arbitrary::Arbitrary;
+
+    #[cfg(feature = "arbitrary")]
+    use bitcoin::amount::CheckedSum;
+
+    #[cfg(feature = "arbitrary")]
+    use bitcoin::OutPoint;
+
+    #[cfg(feature = "arbitrary")]
+    use arbtest::arbtest;
+
+    #[cfg(feature = "arbitrary")]
+    use bitcoin::blockdata::transaction::effective_value;
 
     fn kp() -> Keypair {
         let s = Secp256k1::new();
@@ -239,15 +250,6 @@ mod tests {
             amounts.push(coin.value())
         });
         amounts
-    }
-
-    impl<'a> Arbitrary<'a> for Coin {
-        fn arbitrary(u: &mut Unstructured<'a>) -> Result<Self> {
-            let outpoint: OutPoint = u.arbitrary()?;
-            let tx_out: TxOut = u.arbitrary()?;
-            let coin = Coin { outpoint, tx_out };
-            Ok(coin)
-        }
     }
 
     #[test]
@@ -354,6 +356,7 @@ mod tests {
     }
 
     #[test]
+    #[cfg(feature = "arbitrary")]
     fn arb_from_coin() {
         arbtest(|u| {
             let recipient = ScriptBuf::arbitrary(u)?;
@@ -390,6 +393,7 @@ mod tests {
     }
 
     #[test]
+    #[cfg(feature = "arbitrary")]
     fn arb_from_amount() {
         arbtest(|u| {
             let coins: Vec<Coin> = Vec::arbitrary(u)?;
