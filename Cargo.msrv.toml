@@ -1,0 +1,13 @@
+[package]
+name = "bitcoin-transaction-builder"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.65"
+
+[dependencies]
+bitcoin = { version = "0.32", features = ["rand-std"] }
+bitcoin-coin-selection = { version = "0.9", features = ["rand"] }
+arbitrary = { version = "1", optional = true }
+
+[[example]]
+name = "from-amount"
