@@ -63,6 +63,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "bitcoin-coin-selection"
+version = "0.9.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2116f6d52574c82e37fc96e131a125a177aaba896d21f86b7168b70f25110a59"
+dependencies = [
+ "bitcoin",
+ "rand",
+]
+
+[[package]]
 name = "bitcoin-consensus-encoding"
 version = "1.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -94,6 +104,7 @@ version = "0.0.0"
 dependencies = [
  "arbtest",
  "bitcoin",
+ "bitcoin-coin-selection",
  "esplora-client",
 ]
 
