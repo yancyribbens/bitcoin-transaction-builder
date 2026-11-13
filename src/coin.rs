@@ -6,7 +6,8 @@
 //! value added and the conditions to spend it, while the outpoint is the output location used
 //! to create the new transaction input (TxIn).
 
-use bitcoin::{OutPoint, ScriptBuf, Sequence, TxIn, TxOut, Witness};
+use bitcoin::{Amount, OutPoint, ScriptBuf, Sequence, TxIn, TxOut, Weight, Witness};
+use bitcoin_coin_selection::WeightedUtxo;
 
 /// Coin used as source of Transaction Input.
 #[derive(Clone, Debug)]
@@ -25,6 +26,21 @@ impl Coin {
             sequence: Sequence::ENABLE_RBF_NO_LOCKTIME,
             witness: Witness::default(),
         }
+    }
+}
+
+impl WeightedUtxo for Coin {
+    /// The satisfaction weight of the coin for use by coin-selection.
+    fn satisfaction_weight(&self) -> Weight {
+        // see rust-bitcoin InputWeightPrediction P2TR_KEY_DEFAULT_SIGHASH
+        // for full calculation, see InputWeightPrediction::from_slice()
+        // 1 witness_len + 1 item len +  64 signature
+        Weight::from_wu(66)
+    }
+
+    /// The value of the coin for use by coin-selection.
+    fn value(&self) -> Amount {
+        self.tx_out.value
     }
 }
 
