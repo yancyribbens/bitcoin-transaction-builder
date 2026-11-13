@@ -1,0 +1,15 @@
+[package]
+authors = [
+  "Yancy Ribbens <rust@yancy.lol>",
+]
+categories = ["cryptography", "finance"]
+description = "A builder for Bitcoin Transactions"
+edition = "2021"
+keywords = ["bitcoin", "transaction", "wallet", "coin", "utxo"]
+license = "MIT AND Apache-2.0"
+name = "bitcoin-transaction-builder"
+repository = "https://github.com/yancyribbens/bitcoin-transaction-builder"
+version = "0.0.0"
+
+[package.metadata.docs.rs]
+rustdoc-args = ["--cfg", "docsrs"]
