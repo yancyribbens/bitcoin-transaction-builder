@@ -12,5 +12,16 @@ repository = "https://github.com/yancyribbens/bitcoin-transaction-builder"
 rust-version = "1.56.1"
 version = "0.0.0"
 
+[dependencies]
+bitcoin = { version = "0.32", features = ["arbitrary", "rand-std"] }
+
+[dev-dependencies]
+arbtest = "0.3"
+# used for running example
+esplora-client = { version = "0.13", features = ["blocking-https"] }
+
 [package.metadata.docs.rs]
 rustdoc-args = ["--cfg", "docsrs"]
+
+[[example]]
+name = "from-coins"
