@@ -9,6 +9,7 @@ keywords = ["bitcoin", "transaction", "wallet", "coin", "utxo"]
 license = "MIT AND Apache-2.0"
 name = "bitcoin-transaction-builder"
 repository = "https://github.com/yancyribbens/bitcoin-transaction-builder"
+rust-version = "1.56.1"
 version = "0.0.0"
 
 [package.metadata.docs.rs]
