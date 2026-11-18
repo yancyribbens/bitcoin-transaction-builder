@@ -4,7 +4,7 @@
     <a href="https://crates.io/crates/bitcoin_transaction_builder"><img alt="Crate Info" src="https://img.shields.io/crates/v/bitcoin_transaction_builder.svg"/></a>
     <a href="https://github.com/yancyribbens/rust-bitcoin-transaction-builder/actions?query=workflow%3AContinuous%20integration"><img alt="CI Status" src="https://github.com/yancyribbens/rust-bitcoin-transaction-builder/workflows/Continuous%20integration/badge.svg"></a>
     <a href="https://docs.rs/bitcoin-transaction-builder"><img alt="API Docs" src="https://img.shields.io/docsrs/bitcoin-transaction-builder"/></a>
-    <a href="https://blog.rust-lang.org/2023/11/16/Rust-1.56.1/"><img alt="Rustc Version 1.56.1+" src="https://img.shields.io/badge/rustc-1.56.1%2B-lightgrey.svg"/></a>
+    <a href="https://blog.rust-lang.org/2021/11/01/Rust-1.56.1.html"><img alt="Rustc Version 1.56.1+" src="https://img.shields.io/badge/rustc-1.56.1%2B-lightgrey.svg"/></a>
 </p>
 
 A builder for Bitcoin Transactions written in Rust.
