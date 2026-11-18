@@ -6,8 +6,6 @@
 # -x (xtrace) enable execution tracing with expanded variables and arguments.
 set -ex
 
-# FEATURES="rand"
-
 # Sanity checks.
 cargo --version
 rustc --version
