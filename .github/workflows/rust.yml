@@ -31,9 +31,6 @@ jobs:
     steps:
       - name: Checkout Crate
         uses: actions/checkout@v7
-      - name: Install Boost
-        run: |
-          sudo apt-get update
       - name: Checkout Toolchain
         uses: actions-rs/toolchain@v1
         with:
