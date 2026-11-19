@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# CI script for the `coin selection` crate.
+# CI script for the `transaction builder` crate.
 
 set -ex
 
