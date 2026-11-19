@@ -2,6 +2,8 @@
 #
 # CI script for the `transaction builder` crate.
 
+# -e (errexit) will immeditly exit on script fail.
+# -x (xtrace) enable execution tracing with expanded variables and arguments.
 set -ex
 
 # FEATURES="rand"
