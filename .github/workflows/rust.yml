@@ -34,7 +34,6 @@ jobs:
       - name: Install Boost
         run: |
           sudo apt-get update
-          sudo apt-get install -y libboost-all-dev
       - name: Checkout Toolchain
         uses: actions-rs/toolchain@v1
         with:
